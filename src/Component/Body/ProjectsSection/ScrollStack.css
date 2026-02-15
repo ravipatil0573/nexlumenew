@@ -1,0 +1,46 @@
+/* ScrollStack container for window scroll */
+.scroll-stack-scroller {
+  position: relative;
+  width: 100%;
+  height: auto; /* allow window scroll */
+  overflow: visible; /* window scroll will handle it */
+  scroll-behavior: smooth;
+}
+
+/* Inner container holding all cards */
+.scroll-stack-inner {
+  padding: 20vh 2rem 50vh; /* give top and bottom space */
+  min-height: 250vh; /* enough height for window scroll to trigger all cards */
+}
+
+/* Wrapper for each card (optional for positioning) */
+.scroll-stack-card-wrapper {
+  position: relative;
+}
+
+/* Card styles */
+.scroll-stack-card {
+  transform-origin: top center;
+  will-change: transform, filter;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  height: 20rem;
+  width: 100%;
+  margin: 30px 0;
+  padding: 3rem;
+  border-radius: 40px;
+  box-sizing: border-box;
+  /* Improve mobile performance */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  position: relative;
+  background: #111; /* optional background */
+  color: #fff;
+}
+
+/* Spacer at the end so last pin animation releases cleanly */
+.scroll-stack-end {
+  width: 100%;
+  height: 1px;
+}

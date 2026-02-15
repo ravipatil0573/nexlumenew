@@ -1,0 +1,1003 @@
+/* ============================================
+   CONTACT SECTION - CLASSIC MODERN DESIGN
+   ============================================ */
+
+:root {
+  --contact-spacing-xs: 0.5rem;
+  --contact-spacing-sm: 1rem;
+  --contact-spacing-md: 1.5rem;
+  --contact-spacing-lg: 2rem;
+  --contact-spacing-xl: 3rem;
+  --contact-spacing-2xl: 4rem;
+
+  --contact-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --contact-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  --contact-shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.16);
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+.contact-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-primary);
+  overflow: hidden;
+}
+
+/* Background Elements */
+.contact-bg-gradient {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(200, 0, 0, 0.02) 0%,
+    rgba(200, 0, 0, 0.01) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.contact-noise {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ============================================
+   WRAPPER & LAYOUT
+   ============================================ */
+
+.contact-wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: clamp(2rem, 8vw, 6rem) clamp(1rem, 5vw, 4rem);
+}
+
+/* ============================================
+   HEADER SECTION
+   ============================================ */
+
+.contact-header-section {
+  text-align: center;
+  margin-bottom: clamp(3rem, 10vw, 6rem);
+  animation: slideInDown 0.6s ease-out;
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header-label {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #c80000;
+  margin-bottom: var(--contact-spacing-md);
+}
+
+.header-main-title {
+  font-size: clamp(2rem, 6vw, 5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: var(--contact-spacing-md);
+  letter-spacing: -1px;
+  color: var(--color-text-primary);
+  text-wrap: balance;
+  word-break: break-word;
+}
+
+.header-description {
+  font-size: clamp(0.95rem, 2vw, 1.2rem);
+  color: var(--color-text-secondary);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ============================================
+   MAIN GRID LAYOUT
+   ============================================ */
+
+.contact-main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: clamp(3rem, 8vw, 5rem);
+  align-items: start;
+}
+
+/* ============================================
+   INFO COLUMN (LEFT)
+   ============================================ */
+
+.contact-info-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--contact-spacing-2xl);
+}
+
+.info-block {
+  animation: slideInLeft 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.info-block:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.info-block:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.info-block:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.info-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--color-text-primary);
+  margin-bottom: var(--contact-spacing-md);
+  position: relative;
+  padding-bottom: var(--contact-spacing-md);
+}
+
+.info-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, #c80000, transparent);
+}
+
+.email-link {
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #c80000;
+  text-decoration: none;
+  transition: var(--contact-transition);
+  margin-bottom: var(--contact-spacing-sm);
+  word-break: break-word;
+}
+
+.email-link:hover {
+  color: #ff0000;
+  transform: translateX(4px);
+}
+
+.info-subtitle {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* Socials Grid */
+.socials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: var(--contact-spacing-md);
+}
+
+.social-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--contact-spacing-sm);
+  padding: var(--contact-spacing-md);
+  border-radius: 12px;
+  border: 1px solid rgba(200, 0, 0, 0.1);
+  transition: var(--contact-transition);
+  text-decoration: none;
+  color: var(--color-text-primary);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.social-item:hover {
+  border-color: #c80000;
+  background: rgba(200, 0, 0, 0.08);
+  transform: translateY(-4px);
+}
+
+.social-item img {
+  width: 28px;
+  height: 28px;
+  filter: invert(1);
+  transition: var(--contact-transition);
+}
+
+.social-item:hover img {
+  filter: invert(1) drop-shadow(0 0 8px rgba(200, 0, 0, 0.6));
+}
+
+.social-item span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Benefits List */
+.benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--contact-spacing-md);
+}
+
+.benefits-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--contact-spacing-md);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.benefits-list li::before {
+  content: "→";
+  color: #c80000;
+  font-weight: 700;
+  margin-top: 2px;
+  flex-shrink: 0;
+  font-size: 1.1rem;
+}
+
+/* ============================================
+   FORM COLUMN (RIGHT)
+   ============================================ */
+
+.contact-form-column {
+  animation: slideInRight 0.6s ease-out;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--contact-spacing-2xl);
+}
+
+/* Form Sections */
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--contact-spacing-lg);
+  padding: var(--contact-spacing-lg);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(200, 0, 0, 0.1);
+  border-radius: 16px;
+  transition: var(--contact-transition);
+}
+
+.form-section:hover {
+  border-color: rgba(200, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.form-section-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--color-text-primary);
+  margin: 0;
+  padding-bottom: var(--contact-spacing-md);
+  border-bottom: 1px solid rgba(200, 0, 0, 0.15);
+}
+
+/* Form Grid */
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--contact-spacing-lg);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--contact-spacing-sm);
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  letter-spacing: 0.3px;
+}
+
+.optional-text {
+  font-weight: 400;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+/* Inputs & Textareas */
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(200, 0, 0, 0.15);
+  border-radius: 8px;
+  color: var(--color-text-primary);
+  font-size: 0.95rem;
+  font-family: var(--font-primary);
+  transition: var(--contact-transition);
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: #c80000;
+  background: rgba(200, 0, 0, 0.05);
+  box-shadow: 0 0 0 3px rgba(200, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 150px;
+  font-size: 0.9rem;
+}
+
+.form-group select option {
+  background: #000000 !important;
+  color: #ffffff !important;
+  padding: 8px;
+}
+
+/* Phone Input Group */
+.phone-input-group {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(200, 0, 0, 0.15);
+  border-radius: 8px;
+  transition: var(--contact-transition);
+}
+
+.phone-input-group:focus-within {
+  border-color: #c80000;
+  background: rgba(200, 0, 0, 0.05);
+}
+
+.country-code {
+  padding: 0 16px;
+  font-weight: 600;
+  color: #c80000;
+  white-space: nowrap;
+  border-right: 1px solid rgba(200, 0, 0, 0.15);
+}
+
+.phone-input-group input {
+  background: transparent;
+  border: none;
+  padding: 12px 16px;
+  flex: 1;
+  color: var(--color-text-primary);
+}
+
+.phone-input-group input:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+/* Checkboxes */
+.services-checkboxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: var(--contact-spacing-md);
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: var(--contact-spacing-sm);
+  cursor: pointer;
+  padding: var(--contact-spacing-sm);
+  border-radius: 8px;
+  transition: var(--contact-transition);
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.checkbox-label:hover {
+  background: rgba(200, 0, 0, 0.08);
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #c80000;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.checkbox-label span {
+  font-size: 0.9rem;
+  color: var(--color-text-primary);
+  font-weight: 500;
+}
+
+/* ============================================
+   SUBMIT BUTTON
+   ============================================ */
+
+.form-actions {
+  display: flex;
+  gap: var(--contact-spacing-md);
+  margin-top: var(--contact-spacing-lg);
+}
+
+.submit-button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--contact-spacing-sm);
+  padding: 14px 32px;
+  background: linear-gradient(135deg, #c80000 0%, #960000 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: var(--contact-transition);
+  box-shadow: 0 4px 20px rgba(200, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.submit-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.submit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(200, 0, 0, 0.4);
+}
+
+.submit-button:hover::before {
+  left: 100%;
+}
+
+.submit-button:active {
+  transform: translateY(0);
+}
+
+.button-icon {
+  width: 20px;
+  height: 20px;
+  transition: var(--contact-transition);
+}
+
+.submit-button:hover .button-icon {
+  transform: translateX(4px);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* Tablet & small laptop (<= 1200px) */
+@media (max-width: 1200px) {
+  .contact-main-grid {
+    grid-template-columns: 1fr;
+    gap: var(--contact-spacing-xl);
+  }
+
+  .contact-header-section {
+    margin-bottom: 3rem;
+  }
+
+  .form-grid-2 {
+    grid-template-columns: 1fr;
+    gap: var(--contact-spacing-md);
+  }
+
+  .socials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-info-column {
+    gap: var(--contact-spacing-xl);
+  }
+
+  .form-section {
+    padding: var(--contact-spacing-md);
+  }
+}
+
+/* Mobile Large (426px - 767px) */
+@media (max-width: 767px) and (min-width: 426px) {
+  .contact-wrapper {
+    padding: 3rem 1rem;
+  }
+
+  .contact-header-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .header-main-title {
+    font-size: 2rem;
+  }
+
+  .header-description {
+    font-size: 0.95rem;
+  }
+
+  .contact-main-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .contact-info-column {
+    gap: var(--contact-spacing-xl);
+  }
+
+  .form-section {
+    padding: var(--contact-spacing-md);
+  }
+
+  .form-grid-2 {
+    grid-template-columns: 1fr;
+    gap: var(--contact-spacing-md);
+  }
+
+  .socials-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--contact-spacing-md);
+  }
+
+  .social-item {
+    padding: var(--contact-spacing-md);
+  }
+
+  .services-checkboxes {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--contact-spacing-md);
+  }
+
+  .submit-button {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+  }
+
+  .benefits-list li {
+    font-size: 0.9rem;
+    gap: var(--contact-spacing-md);
+  }
+}
+
+/* Mobile Medium (376px - 425px) */
+@media (max-width: 425px) and (min-width: 376px) {
+  .contact-wrapper {
+    padding: 2.5rem 0.875rem;
+  }
+
+  .contact-header-section {
+    margin-bottom: 2rem;
+  }
+
+  .header-main-title {
+    font-size: 1.75rem;
+    line-height: 1.15;
+  }
+
+  .header-description {
+    font-size: 0.9rem;
+    max-width: 100%;
+  }
+
+  .header-label {
+    font-size: 0.8rem;
+  }
+
+  .contact-main-grid {
+    gap: 1.5rem;
+  }
+
+  .contact-info-column {
+    gap: var(--contact-spacing-lg);
+  }
+
+  .info-title {
+    font-size: 0.85rem;
+    margin-bottom: var(--contact-spacing-sm);
+  }
+
+  .email-link {
+    font-size: 1.1rem;
+  }
+
+  .form-section {
+    padding: var(--contact-spacing-md);
+    gap: var(--contact-spacing-md);
+  }
+
+  .form-section-title {
+    font-size: 0.85rem;
+    padding-bottom: var(--contact-spacing-sm);
+  }
+
+  .form-group label {
+    font-size: 0.85rem;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+  }
+
+  .form-group textarea {
+    min-height: 120px;
+  }
+
+  .socials-grid {
+    grid-template-columns: 1fr;
+    gap: var(--contact-spacing-md);
+  }
+
+  .social-item {
+    padding: var(--contact-spacing-sm);
+  }
+
+  .services-checkboxes {
+    grid-template-columns: 1fr;
+    gap: var(--contact-spacing-sm);
+  }
+
+  .submit-button {
+    padding: 11px 20px;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+  }
+
+  .benefits-list li {
+    font-size: 0.85rem;
+    gap: var(--contact-spacing-sm);
+  }
+}
+
+/* Mobile Small (321px - 375px) */
+@media (max-width: 375px) and (min-width: 321px) {
+  .contact-wrapper {
+    padding: 2rem 0.75rem;
+  }
+
+  .contact-header-section {
+    margin-bottom: 1.75rem;
+  }
+
+  .header-main-title {
+    font-size: 1.5rem;
+    margin-bottom: var(--contact-spacing-sm);
+    line-height: 1.15;
+  }
+
+  .header-description {
+    font-size: 0.85rem;
+    max-width: 100%;
+  }
+
+  .header-label {
+    font-size: 0.75rem;
+    margin-bottom: var(--contact-spacing-sm);
+  }
+
+  .contact-info-column {
+    gap: var(--contact-spacing-lg);
+  }
+
+  .info-title {
+    font-size: 0.8rem;
+    margin-bottom: var(--contact-spacing-sm);
+  }
+
+  .info-title::after {
+    width: 30px;
+    height: 1.5px;
+  }
+
+  .email-link {
+    font-size: 1rem;
+  }
+
+  .info-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .form-section {
+    padding: var(--contact-spacing-md);
+    gap: var(--contact-spacing-md);
+    border-radius: 12px;
+  }
+
+  .form-section-title {
+    font-size: 0.8rem;
+    margin-bottom: 0;
+  }
+
+  .form-group label {
+    font-size: 0.8rem;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+  }
+
+  .form-group textarea {
+    min-height: 100px;
+  }
+
+  .socials-grid {
+    grid-template-columns: 1fr;
+    gap: var(--contact-spacing-sm);
+  }
+
+  .social-item {
+    padding: var(--contact-spacing-sm);
+  }
+
+  .social-item img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .social-item span {
+    font-size: 0.8rem;
+  }
+
+  .services-checkboxes {
+    grid-template-columns: 1fr;
+    gap: var(--contact-spacing-sm);
+  }
+
+  .checkbox-label {
+    padding: var(--contact-spacing-xs);
+    font-size: 0.85rem;
+  }
+
+  .checkbox-label input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+  }
+
+  .submit-button {
+    padding: 10px 16px;
+    font-size: 0.8rem;
+    gap: var(--contact-spacing-xs);
+  }
+
+  .button-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .benefits-list li {
+    font-size: 0.8rem;
+    gap: var(--contact-spacing-sm);
+  }
+
+  .benefits-list li::before {
+    font-size: 1rem;
+  }
+}
+
+/* Mobile Extra Small (320px and below) */
+@media (max-width: 320px) {
+  .contact-wrapper {
+    padding: 1.5rem 0.625rem;
+  }
+
+  .contact-header-section {
+    margin-bottom: 1.5rem;
+  }
+
+  .header-main-title {
+    font-size: 1.3rem;
+    margin-bottom: var(--contact-spacing-xs);
+    line-height: 1.15;
+  }
+
+  .header-description {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    max-width: 100%;
+  }
+
+  .header-label {
+    font-size: 0.7rem;
+    margin-bottom: var(--contact-spacing-xs);
+  }
+
+  .contact-info-column {
+    gap: 1.5rem;
+  }
+
+  .info-title {
+    font-size: 0.75rem;
+    margin-bottom: var(--contact-spacing-xs);
+  }
+
+  .info-title::after {
+    width: 25px;
+    height: 1px;
+  }
+
+  .email-link {
+    font-size: 0.95rem;
+  }
+
+  .info-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .form-section {
+    padding: 1rem;
+    gap: var(--contact-spacing-md);
+  }
+
+  .form-section-title {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+  }
+
+  .form-group label {
+    font-size: 0.75rem;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    padding: 9px 11px;
+    font-size: 0.85rem;
+  }
+
+  .form-group textarea {
+    min-height: 90px;
+  }
+
+  .socials-grid {
+    grid-template-columns: 1fr;
+    gap: var(--contact-spacing-sm);
+  }
+
+  .social-item {
+    padding: 0.75rem;
+  }
+
+  .social-item img {
+    width: 22px;
+    height: 22px;
+  }
+
+  .social-item span {
+    font-size: 0.75rem;
+  }
+
+  .services-checkboxes {
+    grid-template-columns: 1fr;
+    gap: var(--contact-spacing-sm);
+  }
+
+  .checkbox-label {
+    padding: var(--contact-spacing-xs) var(--contact-spacing-sm);
+    font-size: 0.8rem;
+    gap: var(--contact-spacing-xs);
+  }
+
+  .checkbox-label input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+  }
+
+  .submit-button {
+    padding: 9px 14px;
+    font-size: 0.75rem;
+    gap: var(--contact-spacing-xs);
+  }
+
+  .button-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .benefits-list {
+    gap: var(--contact-spacing-sm);
+  }
+
+  .benefits-list li {
+    font-size: 0.75rem;
+    gap: var(--contact-spacing-sm);
+  }
+
+  .benefits-list li::before {
+    font-size: 0.9rem;
+    margin-top: 1px;
+  }
+}

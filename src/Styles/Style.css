@@ -1,0 +1,35 @@
+/* src/styles/variables-dark-red.css */
+
+:root {
+  /* Brand / Primary Colors */
+  --primary-color: #f87171; /* Medium Red */
+  --primary-light: #fca5a5; /* Light Red for hover / highlights */
+  --primary-dark: #b91c1c; /* Dark Red for active / pressed state */
+
+  /* Secondary Accent */
+  --secondary-color: #fbbf24; /* Yellow / Gold for contrast */
+  --secondary-light: #fde68a;
+  --secondary-dark: #b45309;
+
+  /* Background Colors */
+  --background-color: #111111; /* Dark background */
+  --background-alt: #1f1f1f;   /* Slightly lighter for cards / sections */
+
+  /* Surface / Cards */
+  --surface-color: #1f1f1f;
+  --surface-dark: #121212;
+
+  /* Text Colors */
+  --text-color: #f5f5f5;       /* Main text */
+  --text-light: #d1d5db;       /* Secondary / muted text */
+  --text-on-primary: #ffffff;  /* Text on red buttons */
+  --text-on-secondary: #111111; /* Text on yellow buttons */
+
+  /* Border / Outline */
+  --border-color: #374151;     /* Dark gray borders */
+
+  /* Success / Warning / Error */
+  --success-color: #22c55e;    /* Green for success */
+  --danger-color: #ef4444;     /* Error red */
+  --warning-color: #fbbf24;    /* Warning yellow */
+}

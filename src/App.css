@@ -1,0 +1,138 @@
+/* ============================================
+   NEXLUME - GLOBAL CSS VARIABLES
+   All design tokens declared here
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+  /* ============================================
+     FONTS
+     ============================================ */
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-heading: 'Poppins', -apple-system, sans-serif;
+  --font-primary: var(--font-body);
+  --font-display: var(--font-heading);
+
+  /* ============================================
+     COLORS - Background
+     ============================================ */
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --bg-card: #111111;
+  --bg-elevated: #1a1a1a;
+  
+  /* Legacy names (used in some components) */
+  --color-bg-primary: #000000;
+  --color-bg-secondary: #0a0a0a;
+  --color-bg-tertiary: #111111;
+  --color-bg-card: #1a1a1a;
+  --color-bg-surface: #1f1f1f;
+  --color-bg-elevated: #262626;
+
+  /* ============================================
+     COLORS - Text
+     ============================================ */
+  --text-white: #ffffff;
+  --text-primary: #ffffff;
+  --text-secondary: #e5e5e5;
+  --text-muted: #a3a3a3;
+  --text-dim: #737373;
+  
+  /* Legacy names */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #e5e5e5;
+  --color-text-tertiary: #d1d5db;
+  --color-text-muted: #9ca3af;
+  --color-text-disabled: #6b7280;
+  --color-text-on-primary: #000000;
+
+  /* ============================================
+     COLORS - Accent (Deep Red Theme)
+     ============================================ */
+  --accent-primary: #C80000;
+  --accent-primary-light: #FF0000;
+  --accent-primary-dark: #960000;
+  --accent-secondary: #FF3333;
+  --accent-secondary-light: #FF6666;
+  
+  /* Gradient */
+  --gradient-accent: linear-gradient(135deg, #C80000 0%, #FF0000 100%);
+  
+  /* Legacy names */
+  --color-primary: #C80000;
+  --color-primary-600: #960000;
+
+  /* ============================================
+     COLORS - Border
+     ============================================ */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-default: rgba(255, 255, 255, 0.12);
+  --border-strong: rgba(255, 255, 255, 0.2);
+  
+  /* Legacy names */
+  --color-border-primary: #262626;
+  --color-border-secondary: #404040;
+  --color-border-light: rgba(255, 255, 255, 0.1);
+  --color-border-medium: rgba(255, 255, 255, 0.2);
+
+  /* ============================================
+     SPACING
+     ============================================ */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+
+  /* ============================================
+     TRANSITIONS
+     ============================================ */
+  --transition-fast: 150ms ease;
+  --transition-base: 300ms ease;
+  --transition-slow: 500ms ease;
+
+  /* ============================================
+     SHADOWS
+     ============================================ */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 20px rgba(200, 0, 0, 0.3);
+}
+
+/* ============================================
+   GLOBAL BASE STYLES
+   ============================================ */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+}
+
+a {
+  color: var(--accent-primary);
+  text-decoration: none;
+}

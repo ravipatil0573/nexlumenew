@@ -1,0 +1,353 @@
+/* ============================================
+   FOOTER STYLES - Enhanced Design
+   ============================================ */
+
+/* CSS Variables */
+:root {
+  --footer-bg: #000000;
+  --footer-text: #d1d5db;
+  --footer-text-light: #9ca3af;
+  --footer-accent: #C80000;
+  --footer-accent-pink: #FF0000;
+}
+
+/* Base Footer */
+.footer {
+  background: linear-gradient(180deg, #0a0a0a 0%, #000000 100%);
+  color: var(--footer-text);
+  position: relative;
+  font-family: var(--font-primary);
+  padding: 3rem 0 2rem 0;
+}
+
+/* Logo Section */
+.footer-logo-link {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.footer-logo-link:hover {
+  transform: scale(1.05);
+}
+
+.footer-logo {
+  max-height: 28px;
+  width: auto;
+  transition: all 0.3s ease;
+  filter: brightness(1);
+}
+
+.footer-logo:hover {
+  filter: brightness(1.2);
+}
+
+/* Social Links Container */
+.social-links-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* Follow Us Text */
+.follow-us {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  font-family: var(--font-heading);
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+}
+
+/* Social Links */
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glow effect on hover */
+.social-link::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--footer-accent), var(--footer-accent-pink));
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.4s ease;
+}
+
+.social-link:hover {
+  background: linear-gradient(135deg, var(--footer-accent), var(--footer-accent-pink));
+  color: #ffffff;
+  transform: translateY(-4px) scale(1.05);
+  border-color: transparent;
+  box-shadow: 
+    0 8px 25px rgba(200, 0, 0, 0.4),
+    0 0 30px rgba(255, 0, 0, 0.2);
+}
+
+.social-link:hover::before {
+  opacity: 1;
+}
+
+.social-link i {
+  font-size: 1.1rem;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.social-link:hover i {
+  transform: scale(1.1);
+}
+
+/* Divider */
+.footer-divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  margin: 1.5rem 0;
+}
+
+/* Contact Email */
+.contact-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact-email a {
+  color: var(--footer-text);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.contact-email a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--footer-accent), var(--footer-accent-pink));
+  transition: width 0.3s ease;
+}
+
+.contact-email a:hover {
+  color: #ffffff;
+}
+
+.contact-email a:hover::after {
+  width: 100%;
+}
+
+/* Copyright */
+.copyright {
+  color: var(--footer-text-light);
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+
+/* Tablet */
+@media (max-width: 767.98px) {
+  .footer {
+    padding: 2.5rem 0 1.5rem 0;
+    text-align: center;
+  }
+
+  .social-links-container {
+    align-items: center;
+    margin-top: 1.5rem;
+  }
+
+  .social-links {
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .social-link {
+    width: 48px;
+    height: 48px;
+  }
+
+  .social-link i {
+    font-size: 1.2rem;
+  }
+
+  .footer-logo-link {
+    margin-bottom: 0.5rem;
+  }
+
+  .follow-us {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-divider {
+    margin: 1.25rem 0;
+  }
+
+  .contact-email {
+    justify-content: center;
+    margin-bottom: 0.75rem;
+  }
+
+  .copyright {
+    font-size: 0.8rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 575.98px) {
+  .footer {
+    padding: 2rem 1rem 1.25rem 1rem;
+  }
+
+  .social-link {
+    width: 46px;
+    height: 46px;
+  }
+
+  .footer-logo {
+    max-height: 24px;
+  }
+
+  .contact-email a {
+    font-size: 0.875rem;
+  }
+
+  .copyright {
+    font-size: 0.75rem;
+  }
+}
+
+/* ============================================
+   ADDITIONAL FOOTER ELEMENTS
+   ============================================ */
+
+/* Footer Heading */
+.footer-heading {
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  font-size: 1.1rem;
+  position: relative;
+  font-family: var(--font-heading);
+}
+
+.footer-heading::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  height: 2px;
+  width: 40px;
+  background: linear-gradient(90deg, var(--footer-accent), var(--footer-accent-pink));
+}
+
+/* Footer Links */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+  color: var(--footer-text-light);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.footer-links a:hover {
+  color: var(--footer-accent);
+  transform: translateX(4px);
+}
+
+/* Footer Contact */
+.footer-contact {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-contact li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.footer-contact i {
+  margin-right: 10px;
+  color: var(--footer-accent);
+  font-size: 1rem;
+}
+
+.footer-contact a {
+  color: var(--footer-text-light);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-contact a:hover {
+  color: var(--footer-accent);
+}
+
+/* Bottom Links */
+.footer-bottom-links .list-inline-item:not(:last-child) {
+  margin-right: 1.5rem;
+}
+
+.footer-bottom-links a {
+  color: var(--footer-text-light);
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-bottom-links a:hover {
+  color: var(--footer-accent);
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .social-link,
+  .footer-links a,
+  .contact-email a {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.social-link:focus-visible {
+  outline: 2px solid var(--footer-accent);
+  outline-offset: 4px;
+}
