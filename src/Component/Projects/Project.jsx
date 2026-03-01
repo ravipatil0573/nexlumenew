@@ -285,6 +285,14 @@ const ProjectCard = ({ project, index }) => {
 
               <h2 className="project-title">{project.title}</h2>
               <p className="project-subtitle">{project.subtitle}</p>
+              <div className="project-mobile-divider d-lg-none" />
+
+              <p className="project-mobile-summary d-lg-none mb-0">
+                {Array.isArray(project.description) &&
+                project.description.length
+                  ? project.description[0]
+                  : project?.subtitle?.split(".")[0]}
+              </p>
 
               <ul className="project-features list-unstyled d-none d-md-grid gap-2">
                 {(project.description || []).map((point, idx) => (
@@ -352,18 +360,34 @@ const ProjectCard = ({ project, index }) => {
                 })}
               </div>
 
+              <div className="project-tags-mobile d-flex d-lg-none flex-wrap gap-2">
+                {(project.tags || []).slice(0, 6).map((tag, i) => (
+                  <span
+                    key={`${tag}-${i}`}
+                    className="project-tag project-tag--mobile badge rounded-pill"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
               <div className="project-actions d-flex flex-wrap align-items-center gap-3">
                 <Link
                   to={`/projects/${project.id}`}
                   state={project}
-                  className="project-link btn btn-danger rounded-pill px-4 py-2"
+                  className="project-link btn btn-danger rounded-pill px-4 py-2 d-inline-flex align-items-center justify-content-center gap-2"
                 >
-                  View project
+                  <span>View project</span>
+                  <span className="project-link-arrow">↗</span>
                 </Link>
                 <span className="project-blurb d-none d-md-inline">
                   {project?.subtitle?.split(".")[0]}
                 </span>
               </div>
+
+              <span className="project-mobile-footnote d-lg-none">
+                Explore Case Study →
+              </span>
             </div>
           </div>
 
@@ -402,8 +426,68 @@ const ProjectCard = ({ project, index }) => {
   );
 };
 
+const ProjectSkeletonCard = ({ index }) => {
+  return (
+    <div className="project-card mb-5" aria-hidden="true">
+      <div className="project-shell project-shell-skeleton">
+        <div className="row g-4 align-items-center">
+          <div
+            className={`col-12 col-lg-6 order-2 ${
+              index % 2 ? "order-lg-2" : "order-lg-1"
+            }`}
+          >
+            <div className="project-meta d-flex flex-column gap-3">
+              <div className="d-flex align-items-center gap-2">
+                <span className="skeleton-line skeleton-chip"></span>
+                <span className="skeleton-line skeleton-chip"></span>
+              </div>
+
+              <span className="skeleton-line skeleton-title"></span>
+              <span className="skeleton-line skeleton-subtitle"></span>
+
+              <div className="d-none d-md-grid gap-2">
+                <span className="skeleton-line skeleton-feature"></span>
+                <span className="skeleton-line skeleton-feature w-75"></span>
+                <span className="skeleton-line skeleton-feature w-50"></span>
+              </div>
+
+              <div className="d-none d-md-flex flex-wrap gap-2">
+                <span className="skeleton-line skeleton-tag"></span>
+                <span className="skeleton-line skeleton-tag"></span>
+                <span className="skeleton-line skeleton-tag"></span>
+              </div>
+
+              <div className="d-flex align-items-center gap-3">
+                <span className="skeleton-line skeleton-button"></span>
+                <span className="skeleton-line skeleton-blurb d-none d-md-inline"></span>
+              </div>
+            </div>
+          </div>
+
+          <div
+            className={`col-12 col-lg-6 order-1 ${
+              index % 2 ? "order-lg-1" : "order-lg-2"
+            }`}
+          >
+            <div className="project-media">
+              <div className="project-media-frame ratio ratio-16x9">
+                <span className="skeleton-line skeleton-media w-100 h-100"></span>
+              </div>
+              <div className="project-media-caption">
+                <span className="caption-dot"></span>
+                <span className="skeleton-line skeleton-caption"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export default function Projects() {
   const [projects, setProjects] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     let isMounted = true;
@@ -422,6 +506,9 @@ export default function Projects() {
       .catch((e) => {
         console.error("❌ Failed to load projects:", e.message);
         if (isMounted) setProjects([]);
+      })
+      .finally(() => {
+        if (isMounted) setIsLoading(false);
       });
 
     return () => {
@@ -431,15 +518,26 @@ export default function Projects() {
   return (
     <section className="projects-section py-5">
       <div className="container">
-        <div className="text-center mb-5">
-          <h1 className="display-5 fw-bold text-white">
-            Curated <span className="gradient-text">Work</span>
+        <div className="projects-heading mb-5">
+          <div className="projects-heading-meta d-flex align-items-center gap-3">
+            <span className="projects-heading-line"></span>
+            <span className="projects-heading-index">02</span>
+            <span className="projects-heading-label">The Showcase</span>
+          </div>
+
+          <h1 className="projects-heading-title mb-0">
+            <span className="text-white">Curated </span>
+            <span className="projects-heading-accent">Work</span>
           </h1>
         </div>
 
-        {projects.map((project, index) => (
-          <ProjectCard key={project.id} project={project} index={index} />
-        ))}
+        {isLoading
+          ? Array.from({ length: 3 }).map((_, index) => (
+              <ProjectSkeletonCard key={`skeleton-${index}`} index={index} />
+            ))
+          : projects.map((project, index) => (
+              <ProjectCard key={project.id} project={project} index={index} />
+            ))}
       </div>
     </section>
   );

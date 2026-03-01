@@ -7,13 +7,13 @@
   --footer-bg: #000000;
   --footer-text: #d1d5db;
   --footer-text-light: #9ca3af;
-  --footer-accent: #C80000;
-  --footer-accent-pink: #FF0000;
+  --footer-accent: #c80000;
+  --footer-accent-pink: #ff0000;
 }
 
 /* Base Footer */
 .footer {
-  background: linear-gradient(180deg, #0a0a0a 0%, #000000 100%);
+  background: #000000fa;
   color: var(--footer-text);
   position: relative;
   font-family: var(--font-primary);
@@ -82,22 +82,30 @@
 
 /* Glow effect on hover */
 .social-link::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: -2px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--footer-accent), var(--footer-accent-pink));
+  background: linear-gradient(
+    135deg,
+    var(--footer-accent),
+    var(--footer-accent-pink)
+  );
   opacity: 0;
   z-index: -1;
   transition: opacity 0.4s ease;
 }
 
 .social-link:hover {
-  background: linear-gradient(135deg, var(--footer-accent), var(--footer-accent-pink));
+  background: linear-gradient(
+    135deg,
+    var(--footer-accent),
+    var(--footer-accent-pink)
+  );
   color: #ffffff;
   transform: translateY(-4px) scale(1.05);
   border-color: transparent;
-  box-shadow: 
+  box-shadow:
     0 8px 25px rgba(200, 0, 0, 0.4),
     0 0 30px rgba(255, 0, 0, 0.2);
 }
@@ -121,7 +129,12 @@
 .footer-divider {
   border: none;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
   margin: 1.5rem 0;
 }
 
@@ -141,13 +154,17 @@
 }
 
 .contact-email a::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -2px;
   left: 0;
   width: 0;
   height: 1px;
-  background: linear-gradient(90deg, var(--footer-accent), var(--footer-accent-pink));
+  background: linear-gradient(
+    90deg,
+    var(--footer-accent),
+    var(--footer-accent-pink)
+  );
   transition: width 0.3s ease;
 }
 
@@ -258,13 +275,17 @@
 }
 
 .footer-heading::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   bottom: -8px;
   height: 2px;
   width: 40px;
-  background: linear-gradient(90deg, var(--footer-accent), var(--footer-accent-pink));
+  background: linear-gradient(
+    90deg,
+    var(--footer-accent),
+    var(--footer-accent-pink)
+  );
 }
 
 /* Footer Links */

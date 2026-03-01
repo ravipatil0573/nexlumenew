@@ -136,9 +136,9 @@ export default function Hero() {
 
               {/* Email */}
               <a
-                href="mailto:hello@aayushbharti.in"
+                href="mailto:nexlume.co@gmail.com"
                 className="email-link d-inline-flex align-items-center gap-2 text-decoration-none"
-                aria-label="Send email to hello@aayushbharti.in"
+                aria-label="Send email to nexlume.co@gmail.com"
               >
                 <Mail size={20} className="email-icon" aria-hidden="true" />
                 <span>nexlume.co@gmail.com</span>

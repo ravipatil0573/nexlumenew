@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./ServicesSection.css";
 
 const ServicesSection = () => {
   const services = [
@@ -69,36 +70,27 @@ const ServicesSection = () => {
       <section className="relative min-h-screen py-20 overflow-hidden bg-black font-primary">
         {/* Gradient Glow Background */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-20 left-1/4 w-[600px] h-[600px] bg-[#C80000] opacity-10 blur-[120px] rounded-full" />
-          <div className="absolute bottom-20 right-1/4 w-[500px] h-[500px] bg-blue-500 opacity-5 blur-[100px] rounded-full" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-[#C80000]/5 to-transparent blur-3xl" />
+          <div className="absolute top-20 left-1/4 w-[600px] h-[600px] bg-black opacity-30 blur-[120px] rounded-full" />
+          <div className="absolute bottom-20 right-1/4 w-[500px] h-[500px] bg-black opacity-20 blur-[100px] rounded-full" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-black/30 to-transparent blur-3xl" />
         </div>
 
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          {/* Header */}
-          <div className="flex flex-wrap items-start justify-between mb-20 text-left">
-            <div className="w-full md:w-auto mb-8 md:mb-0">
-              <div className="flex items-center gap-3 mb-4">
-                <p className="text-xs tracking-[0.3em] text-gray-500 uppercase font-medium">
-                  WHAT WE DO
-                </p>
-                <div className="w-4 h-4 flex items-center justify-center rounded-full bg-white/5">
-                  <i className="fa-solid fa-arrow-down text-[8px] text-gray-500"></i>
-                </div>
-              </div>
-              <h1 className="mb-4 text-5xl sm:text-6xl md:text-7xl font-bold font-heading bg-gradient-to-r from-[#C80000] via-[#ff3d3d] to-[#C80000] bg-clip-text text-transparent leading-tight">
-                Built-for-impact services
-              </h1>
-              <p className="text-lg text-gray-400 max-w-xl">
-                Dark, cinematic, and unapologetically Nexlume.
-              </p>
+          {/* Styled Header */}
+          <div className="services-intro-head">
+            <div className="services-intro-meta">
+              <span className="services-intro-line" />
+              <span className="services-intro-label">WHAT WE DO</span>
             </div>
-            <Link
-              to="/services"
-              className="group inline-flex items-center justify-center w-full md:w-auto px-6 py-3.5 text-sm font-medium text-white bg-transparent border border-white/20 rounded-full transition-all duration-300 hover:bg-white/5 hover:border-white/40 hover:shadow-[0_0_30px_rgba(200,0,0,0.2)] no-underline"
-            >
+            <h1 className="services-intro-title">
+              <span className="services-intro-main">BUILT-FOR-IMPACT</span>
+              <span className="services-intro-accent">SERVICES</span>
+            </h1>
+            <p className="services-intro-description">
+              Dark, cinematic, and unapologetically Nexlume.
+            </p>
+            <Link to="/services" className="services-intro-cta">
               View all Services
-              <i className="fa-solid fa-arrow-right ml-2 text-xs transition-transform duration-300 group-hover:translate-x-1"></i>
             </Link>
           </div>
 

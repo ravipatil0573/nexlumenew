@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import "./ProjectsSection.css";
 import SafarnamaVideo from "../../../assets/Video/SafarNamaVideo.mp4";
 import NexshowVideo from "../../../assets/Video/NexShow.mp4";
 import StyloraVideo from "../../../assets/Video/StyloraVideo.mp4";
@@ -142,29 +143,25 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen bg-bg-primary overflow-hidden py-16 sm:py-24 md:py-32 lg:py-40 font-primary">
+    <section className="relative min-h-screen bg-black overflow-hidden py-16 sm:py-24 md:py-32 lg:py-40 font-primary">
       {/* Decorative background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -left-40 w-96 h-96 bg-red-900/15 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-red-800/10 rounded-full blur-3xl"></div>
+        <div className="absolute -top-40 -left-40 w-96 h-96 bg-black/30 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-black/20 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Enhanced Heading */}
-        <div className="text-center mb-12 sm:mb-16 md:mb-20 lg:mb-24">
-          <div className="inline-block mb-6 sm:mb-8">
-            <div className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full border border-red-500/40 bg-red-500/5 backdrop-blur-sm">
-              <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
-              <span className="text-xs uppercase tracking-widest text-red-400 font-semibold">
-                Showcase
-              </span>
-            </div>
+        {/* Styled Heading Section */}
+        <div className="projects-style-head">
+          <div className="projects-style-meta">
+            <span className="projects-style-line" />
+            <span className="projects-style-label">PROJECT SHOWCASE</span>
           </div>
-          <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-heading font-bold mb-4 sm:mb-6 bg-gradient-to-r from-white via-white to-red-400 bg-clip-text text-transparent tracking-tight leading-tight">
-            Our Projects
+          <h2 className="projects-style-title">
+            <span className="projects-style-main">OUR</span>
+            <span className="projects-style-accent">PROJECTS</span>
           </h2>
-          <div className="w-20 sm:w-24 h-1 sm:h-1.5 mx-auto mb-6 sm:mb-8 bg-gradient-to-r from-red-600 via-red-500 to-red-600 rounded-full shadow-lg shadow-red-500/50"></div>
-          <p className="text-sm sm:text-base md:text-xl text-gray-300 font-light max-w-3xl mx-auto leading-relaxed px-4">
+          <p className="projects-style-description">
             Discover our innovative solutions and creative excellence
           </p>
         </div>
@@ -234,7 +231,7 @@ const ProjectsSection = () => {
                   </div>
 
                   {/* Description */}
-                  <p className="text-sm text-gray-300 leading-relaxed mb-6 font-light line-clamp-3">
+                  <p className="project-impact-text text-sm leading-relaxed mb-6 line-clamp-3">
                     {project.description}
                   </p>
 
@@ -305,7 +302,7 @@ const ProjectsSection = () => {
 
                   {/* Description with Better Typography */}
                   <div>
-                    <p className="text-base text-gray-300 leading-relaxed mb-8 font-light">
+                    <p className="project-impact-text text-base leading-relaxed mb-8">
                       {project.description}
                     </p>
 

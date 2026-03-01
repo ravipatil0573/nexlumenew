@@ -65,8 +65,17 @@ const InfiniteScrolling = () => {
     <section id="infinite-scrolling" className="py-5">
       <div className="container-fluid">
         <div className="row mb-4">
-          <div className="col-12 text-center">
-            <h2 className="section-title">Technologies We Work With</h2>
+          <div className="col-12">
+            <div className="tech-intro-head">
+              <div className="tech-intro-meta">
+                <span className="tech-intro-line" />
+                <span className="tech-intro-label">OUR TOOLKIT</span>
+              </div>
+              <h2 className="tech-intro-title">
+                <span className="tech-intro-main">TECHNOLOGIES</span>
+                <span className="tech-intro-accent">WE WORK WITH</span>
+              </h2>
+            </div>
           </div>
         </div>
 

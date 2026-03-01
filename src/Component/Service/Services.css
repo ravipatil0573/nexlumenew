@@ -76,12 +76,128 @@
   pointer-events: none;
 }
 
+.main-container.services-showcase {
+  background: #000000;
+}
+
+.main-container.services-showcase::before {
+  background: none;
+}
+
 /* Services Header */
 .services-header {
   text-align: center;
   margin-bottom: 60px;
   position: relative;
   z-index: 1;
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.services-style-head {
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.services-style-head--intro {
+  margin-bottom: 22px;
+}
+
+.services-style-head--intro .services-style-title {
+  font-size: clamp(2.2rem, 5.6vw, 4.9rem);
+  line-height: 0.9;
+}
+
+.services-style-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  margin-bottom: 0.9rem;
+}
+
+.services-style-line {
+  width: 60px;
+  height: 1px;
+  background: #ff0000;
+}
+
+.services-style-number {
+  color: #ff0000;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  font-family: "Inter", sans-serif;
+}
+
+.services-style-label {
+  color: #5f5f5f;
+  font-size: 0.82rem;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.services-style-title {
+  margin: 0;
+  text-transform: uppercase;
+  line-height: 0.84;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.12em;
+  font-size: clamp(2rem, 5.2vw, 4.6rem);
+  letter-spacing: 0.01em;
+  justify-content: center;
+}
+
+.services-style-main,
+.services-style-bottom {
+  font-family: "Anton", "Bebas Neue", serif;
+  color: hsl(0, 0%, 96%);
+  font-weight: 800;
+}
+
+.services-style-accent {
+  color: #ff0000;
+  font-family: "Bodoni Moda", serif;
+  font-style: italic;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.services-style-bottom {
+  width: 100%;
+}
+
+.services-style-head--compact .services-style-title {
+  font-size: clamp(1.7rem, 4vw, 3.2rem);
+  line-height: 0.9;
+}
+
+.services-style-head--compact .services-style-label {
+  letter-spacing: 0.32em;
+  font-size: 0.75rem;
+}
+
+.services-style-head--compact .services-style-line {
+  width: 46px;
+}
+
+.services-style-head--overlap .services-style-title {
+  gap: 0.04em;
+  letter-spacing: 0.004em;
+}
+
+.services-style-head--overlap .services-style-accent {
+  margin-left: -0.02em;
+  margin-right: 0.02em;
+  font-weight: 800;
+}
+
+.services-style-head--overlap .services-style-bottom {
+  margin-top: -0.01em;
 }
 
 .services-header .sub-head {
@@ -117,11 +233,39 @@
 }
 
 .services-subtitle {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #9ca3af;
   max-width: 700px;
   margin: 0 auto;
   line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .services-style-title {
+    font-size: clamp(1.6rem, 8.8vw, 2.8rem);
+    line-height: 0.88;
+  }
+
+  .services-style-head--compact .services-style-title {
+    font-size: clamp(1.35rem, 7.2vw, 2.25rem);
+  }
+
+  .services-style-head--intro .services-style-title {
+    font-size: clamp(1.7rem, 8.8vw, 3rem);
+  }
+
+  .services-style-head--overlap .services-style-accent {
+    margin-left: 0;
+  }
+
+  .services-style-label {
+    letter-spacing: 0.28em;
+    font-size: 0.72rem;
+  }
+
+  .services-style-line {
+    width: 42px;
+  }
 }
 
 /* Service Categories Filter */
@@ -206,8 +350,8 @@
     rgba(18, 18, 18, 0.95) 0%,
     rgba(10, 10, 10, 0.95) 100%
   );
-  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   border-radius: 24px;
   padding: 40px 30px;
   border: 1px solid rgba(200, 0, 0, 0.2);
@@ -1054,8 +1198,8 @@
     rgba(200, 0, 0, 0.12) 50%,
     rgba(200, 0, 0, 0.1) 100%
   );
-  backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
   border-radius: 20px;
   border: 1px solid rgba(200, 0, 0, 0.3);
   box-shadow:
@@ -1928,5 +2072,150 @@
 
   .tech-category {
     padding: 2rem;
+  }
+
+  /* Responsive Hero Layered Title */
+  .hero-layered-title {
+    min-height: 200px;
+    position: relative;
+  }
+
+  .hero-layer--bg {
+    font-size: clamp(2.8rem, 6vw, 5rem) !important;
+  }
+
+  .hero-layer--accent {
+    font-size: clamp(2rem, 4.5vw, 3.2rem) !important;
+  }
+
+  .hero-layer--fg {
+    font-size: clamp(2.4rem, 5.5vw, 4rem) !important;
+  }
+}
+
+/* ============================================
+   HERO LAYERED TYPOGRAPHY - Premium Overlapping Effect
+   ============================================ */
+
+.hero-layered-title {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  font-size: 0;
+  line-height: 0.9;
+  min-height: 280px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.hero-layer {
+  position: relative;
+  display: inline-block;
+  line-height: 0.95;
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* DISCOVER - Background text, extremely large, light color */
+.hero-layer--bg {
+  font-size: clamp(3.2rem, 8vw, 7rem);
+  font-family: "Anton", "Bebas Neue", sans-serif;
+  color: rgba(245, 245, 245, 0.12);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  text-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
+}
+
+/* OUR - Bright red focal point, elegant italic serif, overlapping across center */
+.hero-layer--accent {
+  font-size: clamp(4rem, 9vw, 8rem);
+  font-family: "Bodoni Moda", "Georgia", serif;
+  font-style: italic;
+  color: #ff0a0a;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  z-index: 10;
+  position: relative;
+  transform: scaleY(1.15);
+  text-shadow:
+    0 0 40px rgba(255, 10, 10, 0.4),
+    0 8px 20px rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
+  font-variant: small-caps;
+  margin: 0 0.15em;
+}
+
+/* EXPERTISE - Large bold white text, layered behind/below for depth */
+.hero-layer--fg {
+  font-size: clamp(3.4rem, 7.5vw, 6rem);
+  font-family: "Anton", "Bebas Neue", sans-serif;
+  color: #ffffff;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  z-index: 5;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  text-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.6),
+    0 4px 16px rgba(255, 10, 10, 0.15);
+  white-space: nowrap;
+}
+
+/* Fine-tune stacking and overlap effect */
+@supports (backdrop-filter: blur(0px)) {
+  .hero-layer--accent {
+    mix-blend-mode: screen;
+  }
+}
+
+/* Responsive adjustments for ultra-narrow screens */
+@media (max-width: 480px) {
+  .hero-layered-title {
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.1em;
+    line-height: 1;
+  }
+
+  .hero-layer--bg {
+    font-size: clamp(2.6rem, 5.5vw, 3.8rem);
+    position: static;
+    top: auto;
+    left: auto;
+    transform: none;
+  }
+
+  .hero-layer--accent {
+    font-size: clamp(2.8rem, 6.5vw, 4rem);
+    margin: 0;
+    transform: none;
+  }
+
+  .hero-layer--fg {
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    position: static;
+    bottom: auto;
+    left: auto;
+    transform: none;
   }
 }

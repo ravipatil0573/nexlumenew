@@ -804,7 +804,18 @@ const Services = () => {
       {/* Header */}
       <div className="full-screen-container">
         <div className="header">
-          <h1>Discover Our Expertise</h1>
+          <div className="services-style-head">
+            <div className="services-style-meta">
+              <span className="services-style-line" />
+              <span className="services-style-number">01</span>
+              <span className="services-style-label">OUR EXPERTISE</span>
+            </div>
+            <h1 className="hero-layered-title">
+              <span className="hero-layer hero-layer--bg">DISCOVER</span>
+              <span className="hero-layer hero-layer--accent">OUR</span>
+              <span className="hero-layer hero-layer--fg">EXPERTISE</span>
+            </h1>
+          </div>
           <p>
             At Nexlume, we pride ourselves on our commitment to <br />
             <span className="highlight">
@@ -820,12 +831,18 @@ const Services = () => {
       {/* Flowing Services Menu - Enhanced */}
       <section className="main-container services-showcase">
         <div className="services-header">
-          <h6 className="sub-head mb-15" data-aos="fade-up">
-            Our Services
-          </h6>
-          <h2 className="header" data-aos="fade-up" data-aos-delay="100">
-            What We Offer
-          </h2>
+          <div className="services-style-head" data-aos="fade-up">
+            <div className="services-style-meta">
+              <span className="services-style-line" />
+              <span className="services-style-number">02</span>
+              <span className="services-style-label">THE CHALLENGE</span>
+            </div>
+            <h2 className="services-style-title" data-aos-delay="100">
+              <span className="services-style-main">OUR</span>
+              <span className="services-style-accent">SERVICES</span>
+              <span className="services-style-bottom">WE OFFER</span>
+            </h2>
+          </div>
           <p
             className="services-subtitle"
             data-aos="fade-up"
@@ -887,7 +904,7 @@ const Services = () => {
                 <span className="service-category-badge">{item.category}</span>
                 <h3 className="service-title">{item.text}</h3>
                 <p className="service-description">{item.description}</p>
-                <a href={item.link} className="service-link">
+                {/* <a href={item.link} className="service-link">
                   Learn More
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                     <path
@@ -898,7 +915,7 @@ const Services = () => {
                       strokeLinejoin="round"
                     />
                   </svg>
-                </a>
+                </a> */}
               </div>
             </div>
           ))}
@@ -957,9 +974,19 @@ const Services = () => {
               </div>
             </div>
             <div className="col-lg-7">
-              <div className="sec-head mb-60">
-                <h6 className="sub-head mb-15">Questions & Answers</h6>
-                <h2>Providing clarity on frequently asked questions</h2>
+              <div className="sec-head services-style-head mb-60">
+                <div className="services-style-meta">
+                  <span className="services-style-line" />
+                  <span className="services-style-number">03</span>
+                  <span className="services-style-label">FAQ SUPPORT</span>
+                </div>
+                <h2 className="services-style-title">
+                  <span className="services-style-main">PROVIDING</span>
+                  <span className="services-style-accent">CLARITY</span>
+                  <span className="services-style-bottom">
+                    ON FREQUENTLY ASKED QUESTIONS
+                  </span>
+                </h2>
               </div>
               <div className="faq-list">
                 {faqs.map((faq) => (
@@ -991,9 +1018,17 @@ const Services = () => {
       {/* Process Section - NEW */}
       <section className="process-section section-padding">
         <div className="container">
-          <div className="sec-head mb-60 text-center">
-            <h6 className="sub-head mb-15">Our Process</h6>
-            <h2>How We Bring Your Vision to Life</h2>
+          <div className="sec-head services-style-head mb-60">
+            <div className="services-style-meta">
+              <span className="services-style-line" />
+              <span className="services-style-number">04</span>
+              <span className="services-style-label">OUR PROCESS</span>
+            </div>
+            <h2 className="services-style-title">
+              <span className="services-style-main">HOW WE</span>
+              <span className="services-style-accent">BRING</span>
+              <span className="services-style-bottom">YOUR VISION TO LIFE</span>
+            </h2>
             <p className="sec-desc">
               A streamlined, transparent approach from concept to launch
             </p>
@@ -1136,10 +1171,18 @@ const Services = () => {
       {/* Tech Stack Section - NEW */}
       <section className="tech-stack-section section-padding">
         <div className="container">
-          <div className="sec-head mb-60 text-center">
-            <h6 className="sub-head mb-15">Technology Stack</h6>
-            <h2>Powered by Modern Technologies</h2>
-            <p className="sec-desc">
+          <div className="sec-head services-style-head mb-60">
+            <div className="services-style-meta">
+              <span className="services-style-line" />
+              <span className="services-style-number">05</span>
+              <span className="services-style-label">TECH STACK</span>
+            </div>
+            <h2 className="services-style-title">
+              <span className="services-style-main">POWERED BY</span>
+              <span className="services-style-accent">MODERN</span>
+              <span className="services-style-bottom">TECHNOLOGIES</span>
+            </h2>
+            <p className="sec-desc" style={{ color: "white" }}>
               We use cutting-edge tools to build scalable, high-performance
               solutions
             </p>

@@ -1,0 +1,126 @@
+/* ============================================
+   PROJECTS SECTION - Styled Heading System
+   ============================================ */
+
+.projects-style-head {
+  text-align: center;
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.projects-style-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+}
+
+.projects-style-line {
+  display: inline-block;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, #ff0000, #ff0a0a);
+  border: none;
+}
+
+.projects-style-label {
+  font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+  font-weight: 600;
+  letter-spacing: 0.42em;
+  color: #5f5f5f;
+  text-transform: uppercase;
+  font-family: "Inter", "Helvetica", serif;
+}
+
+.projects-style-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: clamp(2.4rem, 6vw, 5rem);
+  line-height: 1.1;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.projects-style-main {
+  font-family: "Anton", "Bebas Neue", serif;
+  font-weight: 700;
+  color: #f5f5f5;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.projects-style-accent {
+  font-family: "Bodoni Moda", "Georgia", serif;
+  font-style: italic;
+  font-weight: 800;
+  color: #ff0a0a;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  text-shadow: 0 0 30px rgba(255, 10, 10, 0.3);
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.projects-style-description {
+  font-size: clamp(0.95rem, 2vw, 1.25rem);
+  color: #a0a0a0;
+  font-weight: 300;
+  max-width: 600px;
+  line-height: 1.6;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+/* ============================================
+   PROJECT IMPACT TEXT - Red Italic Serif Style
+   ============================================ */
+
+.project-impact-text {
+  font-family: "Bodoni Moda", "Georgia", serif !important;
+  font-style: italic !important;
+  font-weight: 600 !important;
+  color: #ff0a0a !important;
+  letter-spacing: -0.01em;
+  text-shadow: 0 0 20px rgba(255, 10, 10, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .projects-style-head {
+    margin-bottom: clamp(2.5rem, 5vw, 4rem);
+    gap: 1.2rem;
+  }
+
+  .projects-style-line {
+    width: 50px;
+    height: 1.5px;
+  }
+
+  .projects-style-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.35em;
+  }
+
+  .projects-style-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    gap: 0.4rem;
+  }
+
+  .projects-style-description {
+    font-size: clamp(0.85rem, 1.8vw, 1rem);
+  }
+
+  .project-impact-text {
+    font-size: 0.9rem !important;
+  }
+}

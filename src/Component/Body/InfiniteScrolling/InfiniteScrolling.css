@@ -1,8 +1,10 @@
 /* Infinite Scrolling Logos Section */
 #infinite-scrolling {
-  background-color: var(--color-bg-primary);
+  background: transparent;
   overflow: hidden;
   padding: 3rem 0;
+  border-top: none;
+  box-shadow: none;
 }
 
 .section-title {
@@ -23,7 +25,9 @@
 .logos-slide {
   display: flex;
   animation: scroll 30s linear infinite;
-  width: calc(200px * 40); /* Width of each logo item * number of items (including duplicates) */
+  width: calc(
+    200px * 40
+  ); /* Width of each logo item * number of items (including duplicates) */
 }
 
 /* Reverse direction for second row */
@@ -63,13 +67,17 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-150px * 20)); /* Width of each logo * number of unique logos */
+    transform: translateX(
+      calc(-150px * 20)
+    ); /* Width of each logo * number of unique logos */
   }
 }
 
 @keyframes scroll-reverse {
   0% {
-    transform: translateX(calc(-150px * 20)); /* Width of each logo * number of unique logos */
+    transform: translateX(
+      calc(-150px * 20)
+    ); /* Width of each logo * number of unique logos */
   }
   100% {
     transform: translateX(0);
@@ -81,11 +89,11 @@
   .logo-item {
     width: 120px;
   }
-  
+
   .logos-slide {
     width: calc(120px * 40);
   }
-  
+
   @keyframes scroll {
     0% {
       transform: translateX(0);
@@ -94,7 +102,7 @@
       transform: translateX(calc(-120px * 20));
     }
   }
-  
+
   @keyframes scroll-reverse {
     0% {
       transform: translateX(calc(-120px * 20));
@@ -102,5 +110,100 @@
     100% {
       transform: translateX(0);
     }
+  }
+}
+
+/* ============================================
+   TECH INTRO - Styled Heading System
+   ============================================ */
+
+.tech-intro-head {
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 1.5rem !important;
+  margin-bottom: clamp(2.5rem, 5vw, 5rem) !important;
+}
+
+.tech-intro-meta {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.9rem !important;
+}
+
+.tech-intro-line {
+  display: inline-block !important;
+  width: 60px !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, #ff0000, #ff0a0a) !important;
+  border: none !important;
+}
+
+.tech-intro-label {
+  font-size: clamp(0.7rem, 1.5vw, 0.9rem) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.42em !important;
+  color: #5f5f5f !important;
+  text-transform: uppercase !important;
+  font-family: "Inter", "Helvetica", serif !important;
+}
+
+.tech-intro-title {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+  font-size: clamp(2.4rem, 6vw, 5rem) !important;
+  line-height: 1.1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  text-align: center !important;
+}
+
+.tech-intro-main {
+  font-family: "Anton", "Bebas Neue", serif !important;
+  font-weight: 700 !important;
+  color: #f5f5f5 !important;
+  text-transform: uppercase !important;
+  letter-spacing: -0.02em !important;
+  display: inline-block !important;
+  white-space: nowrap !important;
+}
+
+.tech-intro-accent {
+  font-family: "Bodoni Moda", "Georgia", serif !important;
+  font-style: italic !important;
+  font-weight: 800 !important;
+  color: #ff0a0a !important;
+  text-transform: uppercase !important;
+  letter-spacing: -0.02em !important;
+  text-shadow: 0 0 30px rgba(255, 10, 10, 0.3) !important;
+  display: inline-block !important;
+  white-space: nowrap !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .tech-intro-head {
+    gap: 1.2rem !important;
+  }
+
+  .tech-intro-line {
+    width: 50px !important;
+    height: 1.5px !important;
+  }
+
+  .tech-intro-label {
+    font-size: 0.75rem !important;
+    letter-spacing: 0.35em !important;
+  }
+
+  .tech-intro-title {
+    font-size: clamp(2rem, 5vw, 3.5rem) !important;
+    gap: 0.4rem !important;
   }
 }
