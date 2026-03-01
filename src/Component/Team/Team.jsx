@@ -7,6 +7,38 @@ import { OptimizedImage } from "../../components/OptimizedImage";
 
 const API_BASE = import.meta.env.VITE_API_BASE;
 
+const waitForImageLoad = (src, timeout = 15000) =>
+  new Promise((resolve) => {
+    if (!src) {
+      resolve(true);
+      return;
+    }
+
+    const img = new Image();
+    let settled = false;
+
+    const finish = (ok) => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timer);
+      resolve(ok);
+    };
+
+    const timer = setTimeout(() => finish(false), timeout);
+    img.onload = () => finish(true);
+    img.onerror = () => finish(false);
+    img.src = src;
+  });
+
+const preloadMemberImages = async (list = []) => {
+  const sources = list.map((member) => member?.image).filter(Boolean);
+  if (!sources.length) return true;
+  const results = await Promise.all(
+    sources.map((src) => waitForImageLoad(src)),
+  );
+  return results.every(Boolean);
+};
+
 // Import images
 import Nikhil from "../../assets/Team/messa.jpg";
 import Sanjit from "../../assets/Team/sanju.jpg";
@@ -120,13 +152,41 @@ const TeamCard = ({ items = demo }) => {
   );
 };
 
+const TeamCardSkeleton = ({ count = 6 }) => {
+  return (
+    <div className="team-grid" aria-hidden="true">
+      {Array.from({ length: count }).map((_, index) => (
+        <div key={index} className="team-card team-card--skeleton">
+          <div className="team-card-inner">
+            <div className="team-image-wrapper team-image-wrapper--skeleton">
+              <span className="team-skeleton team-skeleton-media" />
+            </div>
+            <div className="team-content">
+              <div className="team-header">
+                <span className="team-skeleton team-skeleton-name" />
+                <span className="team-skeleton team-skeleton-role" />
+              </div>
+              <span className="team-skeleton team-skeleton-bio" />
+              <span className="team-skeleton team-skeleton-bio team-skeleton-bio--short" />
+              <div className="team-footer">
+                <span className="team-skeleton team-skeleton-handle" />
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
 // =========================
 // MAIN TEAM COMPONENT
 // =========================
 const Team = () => {
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [members, setMembers] = useState(demo);
+  const [isTeamLoading, setIsTeamLoading] = useState(true);
+  const [members, setMembers] = useState([]);
 
   // Fetch team members from backend (fallback to demo on failure)
   useEffect(() => {
@@ -138,12 +198,25 @@ const Team = () => {
         const res = await fetch(`${teamsAPI}/api/teams`);
         const json = await res.json();
         const list = Array.isArray(json) ? json : json.data || [];
-        if (isMounted && list.length) {
-          setMembers(list);
+        const finalMembers = list.length ? list : demo;
+
+        if (!isMounted) return;
+        setMembers(finalMembers);
+
+        const imagesLoaded = await preloadMemberImages(finalMembers);
+        if (!isMounted) return;
+
+        if (!imagesLoaded) {
+          console.warn("Some team images are not loaded yet.");
         }
       } catch (err) {
         console.error("Failed to load teams:", err);
-        if (isMounted) setMembers(demo);
+        if (isMounted) {
+          setMembers(demo);
+          await preloadMemberImages(demo);
+        }
+      } finally {
+        if (isMounted) setIsTeamLoading(false);
       }
     };
     loadTeams();
@@ -224,7 +297,11 @@ const Team = () => {
         </div>
 
         <div id="teams" className="team-main-container">
-          <TeamCard items={members} />
+          {isTeamLoading ? (
+            <TeamCardSkeleton count={6} />
+          ) : (
+            <TeamCard items={members.length ? members : demo} />
+          )}
         </div>
       </section>
 

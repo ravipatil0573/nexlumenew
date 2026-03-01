@@ -5,6 +5,29 @@ import "./ProjectDetailsNew.css";
 
 const API_BASE = import.meta.env?.VITE_API_BASE || "http://localhost:5000";
 
+const waitForImageLoad = (src, timeout = 15000) =>
+  new Promise((resolve) => {
+    if (!src) {
+      resolve(true);
+      return;
+    }
+
+    const img = new Image();
+    let settled = false;
+
+    const finish = (ok) => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timer);
+      resolve(ok);
+    };
+
+    const timer = setTimeout(() => finish(false), timeout);
+    img.onload = () => finish(true);
+    img.onerror = () => finish(false);
+    img.src = src;
+  });
+
 const normalizeProject = (data) => {
   if (!data) return null;
 
@@ -307,6 +330,65 @@ const SectionHeading = ({
   </header>
 );
 
+const ProjectDetailsSkeleton = () => (
+  <div
+    className="pdx-page pdx-skeleton-page"
+    aria-busy="true"
+    aria-live="polite"
+  >
+    <section className="pdx-section pdx-hero">
+      <div className="container-lg">
+        <div className="pdx-hero-grid">
+          <div className="pdx-hero-left">
+            <span className="pdx-skeleton-line pdx-skeleton-eyebrow" />
+            <span className="pdx-skeleton-line pdx-skeleton-title" />
+            <span className="pdx-skeleton-line pdx-skeleton-title pdx-skeleton-title--short" />
+            <span className="pdx-skeleton-line pdx-skeleton-text" />
+            <span className="pdx-skeleton-line pdx-skeleton-text pdx-skeleton-text--short" />
+            <div className="pdx-skeleton-chip-row">
+              <span className="pdx-skeleton-chip" />
+              <span className="pdx-skeleton-chip" />
+              <span className="pdx-skeleton-chip" />
+              <span className="pdx-skeleton-chip" />
+            </div>
+          </div>
+
+          <div className="pdx-hero-right">
+            <article className="pdx-preview-card">
+              <div className="pdx-preview-head">
+                <span className="pdx-skeleton-dot" />
+                <span className="pdx-skeleton-line pdx-skeleton-head" />
+              </div>
+              <div className="pdx-preview-media pdx-skeleton-media" />
+              <div className="pdx-preview-actions">
+                <span className="pdx-skeleton-btn" />
+                <span className="pdx-skeleton-btn pdx-skeleton-btn--outline" />
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section className="pdx-section">
+      <div className="container-lg">
+        <div className="pdx-two-card-grid">
+          <div className="pdx-dark-card pdx-skeleton-card">
+            <span className="pdx-skeleton-line pdx-skeleton-card-title" />
+            <span className="pdx-skeleton-line pdx-skeleton-card-text" />
+            <span className="pdx-skeleton-line pdx-skeleton-card-text pdx-skeleton-card-text--short" />
+          </div>
+          <div className="pdx-dark-card pdx-skeleton-card">
+            <span className="pdx-skeleton-line pdx-skeleton-card-title" />
+            <span className="pdx-skeleton-line pdx-skeleton-card-text" />
+            <span className="pdx-skeleton-line pdx-skeleton-card-text pdx-skeleton-card-text--short" />
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+);
+
 export default function ProjectDetailsNew() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -329,7 +411,16 @@ export default function ProjectDetailsNew() {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
         const data = await res.json();
-        setProject(normalizeProject(data));
+        const normalized = normalizeProject(data);
+        setProject(normalized);
+
+        const previewImage =
+          normalized?.image || normalized?.screenshots?.[0] || "";
+        const imageLoaded = await waitForImageLoad(previewImage);
+
+        if (!imageLoaded) {
+          console.warn("Project preview image is not loaded yet.");
+        }
       } catch (err) {
         setError(err.message);
       } finally {
@@ -371,13 +462,7 @@ export default function ProjectDetailsNew() {
   }, [mappedContent.decisions]);
 
   if (loading) {
-    return (
-      <div className="pdx-loading">
-        <div className="spinner-border text-danger" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </div>
-      </div>
-    );
+    return <ProjectDetailsSkeleton />;
   }
 
   if (error || !project) {
@@ -405,7 +490,9 @@ export default function ProjectDetailsNew() {
               <p className="pdx-eyebrow">01 / 07</p>
               <h1 className="pdx-hero-title">
                 <span className="pdx-hero-main">{mappedContent.titleTop}</span>
-                <span className="pdx-hero-accent">{mappedContent.titleBottom}</span>
+                <span className="pdx-hero-accent">
+                  {mappedContent.titleBottom}
+                </span>
               </h1>
               <p className="pdx-hero-subtitle">{project.overview}</p>
 

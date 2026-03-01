@@ -241,6 +241,42 @@ const techIcons = {
 
 // 👉 Backend base URL (set VITE_API_BASE in your frontend .env to override)
 
+const waitForImageLoad = (src, timeout = 15000) =>
+  new Promise((resolve) => {
+    if (!src) {
+      resolve(true);
+      return;
+    }
+
+    const img = new Image();
+    let settled = false;
+
+    const finish = (ok) => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timer);
+      resolve(ok);
+    };
+
+    const timer = setTimeout(() => finish(false), timeout);
+    img.onload = () => finish(true);
+    img.onerror = () => finish(false);
+    img.src = src;
+  });
+
+const preloadProjectImages = async (list = []) => {
+  const sources = list
+    .map((project) => project?.image || project?.screenshots?.[0] || "")
+    .filter(Boolean);
+
+  if (!sources.length) return true;
+
+  const results = await Promise.all(
+    sources.map((src) => waitForImageLoad(src)),
+  );
+  return results.every(Boolean);
+};
+
 const ProjectCard = ({ project, index }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [, setActiveId] = useState(null); // keep setter only (fix)
@@ -492,24 +528,34 @@ export default function Projects() {
   useEffect(() => {
     let isMounted = true;
 
-    fetch(`${API.main}/api/projects`)
-      .then((res) => {
+    const loadProjects = async () => {
+      try {
+        const res = await fetch(`${API.main}/api/projects`);
         if (!res.ok) {
           throw new Error(`HTTP error! Status: ${res.status}`);
         }
-        return res.json();
-      })
-      .then((json) => {
+
+        const json = await res.json();
         const list = Array.isArray(json) ? json : json.data || [];
-        if (isMounted) setProjects(list);
-      })
-      .catch((e) => {
+        if (!isMounted) return;
+
+        setProjects(list);
+
+        const imagesLoaded = await preloadProjectImages(list.slice(0, 6));
+        if (!isMounted) return;
+
+        if (!imagesLoaded) {
+          console.warn("Some project images are not loaded yet.");
+        }
+      } catch (e) {
         console.error("❌ Failed to load projects:", e.message);
         if (isMounted) setProjects([]);
-      })
-      .finally(() => {
+      } finally {
         if (isMounted) setIsLoading(false);
-      });
+      }
+    };
+
+    loadProjects();
 
     return () => {
       isMounted = false;
