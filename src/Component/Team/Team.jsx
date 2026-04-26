@@ -120,9 +120,25 @@ const TeamCard = ({ items = demo }) => {
   const hasSevenMembers = items.length === 7;
 
   return (
-    <div className={`team-grid ${hasSevenMembers ? "team-grid--seven" : ""}`}>
+    <div
+      className={`team-grid ${hasSevenMembers ? "team-grid--seven" : ""}`}
+      style={
+        hasSevenMembers ? { gridTemplateColumns: "repeat(8, minmax(110px, 1fr))" } : undefined
+      }
+    >
       {items.map((member, index) => (
-        <div key={index} className="team-card" data-index={index}>
+        <div
+          key={index}
+          className="team-card"
+          data-index={index}
+          style={
+            hasSevenMembers
+              ? index < 4
+                ? { gridColumn: `${1 + index * 2} / span 2`, gridRow: "1" }
+                : { gridColumn: `${2 + (index - 4) * 2} / span 2`, gridRow: "2" }
+              : undefined
+          }
+        >
           <div className="team-card-inner">
             <div className="team-image-wrapper">
               <OptimizedImage
