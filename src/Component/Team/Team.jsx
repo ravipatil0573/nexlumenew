@@ -46,7 +46,7 @@ import Ravi from "../../assets/Team/ravi.jpg";
 import Aman from "../../assets/Team/aman.jpg";
 import Prajwal from "../../assets/Team/Pk.jpg";
 import Sanath from "../../assets/Team/anna.jpg";
-import Shraddha from "../../assets/Team/shraddha.jpeg";
+import Shraddha from "../../assets/Team/Shraddha.jpeg";
 import GroupImage from "../../assets/Team/group-image.jpg";
 import TeamEmailImage from "../../assets/Team/team-email.jpg";
 
