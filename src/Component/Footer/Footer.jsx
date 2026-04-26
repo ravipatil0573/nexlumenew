@@ -30,7 +30,7 @@ const Footer = () => {
                 <Link to="/" className="social-link">
                   <i className="bi bi-twitter-x"></i>
                 </Link>
-                <Link to="/" className="social-link">
+                <Link to="http://instagram.com/nexlume/" className="social-link">
                   <i className="bi bi-instagram"></i>
                 </Link>
               </div>
@@ -48,7 +48,7 @@ const Footer = () => {
           </div>
           <div className="col-md-6 text-center text-md-end">
             <span className="copyright">
-              Nexlume &copy; 2025 All Rights Reserved
+              Nexlume &copy; 2026 All Rights Reserved
             </span>
           </div>
         </div>

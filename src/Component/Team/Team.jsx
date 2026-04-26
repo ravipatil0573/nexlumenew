@@ -67,7 +67,7 @@ const demo = [
     title: "Prajwal Kolure",
     role: "Creative Director",
     handle: "@prajwalkolure",
-    bio: "Driving creative vision through impactful design, branding, and visual storytelling.",
+    bio: "Driving creative vision through design, branding, and storytelling.",
     url: "https://www.linkedin.com/in/prajwal-k-956865328/",
   },
   {
@@ -75,16 +75,8 @@ const demo = [
     title: "Aman Mishra",
     role: "Project Manager",
     handle: "@amanmishra",
-    bio: "Ensuring smooth execution of projects by managing timelines, teams, and deliverables.",
+    bio: "Coordinating teams for smooth execution.",
     url: "https://www.linkedin.com/in/amanmishra107/",
-  },
-  {
-    image: Sanjit,
-    title: "Sanjit Prajapati",
-    role: "UI/UX Specialist",
-    handle: "@sanjitprajapati",
-    bio: "Transforming ideas into stunning digital experiences",
-    url: "https://www.linkedin.com/in/sanjit-prajapati-5420a9222/",
   },
   {
     image: Ravi,
@@ -95,19 +87,27 @@ const demo = [
     url: "https://www.linkedin.com/in/ravindra-patil-3a2876250/",
   },
   {
+    image: Sanjit,
+    title: "Sanjit Prajapati",
+    role: "UI/UX Specialist",
+    handle: "@sanjitprajapati",
+    bio: "Transforming ideas into stunning digital experiences",
+    url: "https://www.linkedin.com/in/sanjit-prajapati-5420a9222/",
+  },
+  {
     image: Sanath,
     title: "Sanath Shetty",
     role: "Full Stack Developer",
     handle: "@sanathshetty",
-    bio: "Developing end-to-end solutions with a focus on performance and scalability.",
-    url: "#",
+    bio: "Building scalable end-to-end solutions with high performance.",
+    url: "https://www.linkedin.com/in/sanath-shetty-979b4526b/",
   },
   {
     image: Shraddha,
     title: "Sharddha Chauhan",
     role: "Creative Strategist",
     handle: "@sharddhachauhan",
-    bio: "Using creative strategies for brand growth, enhancing client engagement and reach.",
+    bio: "Using creative strategies to grow brand engagement and reach.",
     url: "https://www.linkedin.com/in/shraddha-chauhan017-532044223/",
     imagePosition: "center 42%",
   },
@@ -120,9 +120,29 @@ const TeamCard = ({ items = demo }) => {
   const hasSevenMembers = items.length === 7;
 
   return (
-    <div className={`team-grid ${hasSevenMembers ? "team-grid--seven" : ""}`}>
+    <div
+      className={`team-grid ${hasSevenMembers ? "team-grid--seven" : ""}`}
+      style={
+        hasSevenMembers
+          ? {
+              gridTemplateColumns: "repeat(8, minmax(110px, 1fr))",
+            }
+          : undefined
+      }
+    >
       {items.map((member, index) => (
-        <div key={index} className="team-card" data-index={index}>
+        <div
+          key={index}
+          className="team-card"
+          data-index={index}
+          style={
+            hasSevenMembers
+              ? index < 4
+                ? { gridColumn: `${1 + index * 2} / span 2`, gridRow: "1" }
+                : { gridColumn: `${2 + (index - 4) * 2} / span 2`, gridRow: "2" }
+              : undefined
+          }
+        >
           <div className="team-card-inner">
             <div className="team-image-wrapper">
               <OptimizedImage
