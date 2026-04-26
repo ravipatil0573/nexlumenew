@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Bodoni+Moda:ital,wght@1,700;1,800&family=Inter:wght@400;500;600;700&display=swap");
-
 :root {
   --pdx-bg-primary: #000000;
   --pdx-bg-secondary: #0a0a0a;
@@ -14,7 +12,7 @@
 .pdx-page {
   background: var(--pdx-bg-primary);
   color: var(--pdx-text-primary);
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-body);
   overflow: hidden;
 }
 
@@ -147,7 +145,7 @@
 
 .pdx-error h2 {
   margin: 0;
-  font-family: "Bebas Neue", "Anton", sans-serif;
+  font-family: var(--font-heading);
   letter-spacing: 0.08em;
 }
 
@@ -184,7 +182,7 @@
   text-transform: uppercase;
   line-height: 0.9;
   letter-spacing: 0.02em;
-  font-family: "Bebas Neue", "Anton", "Oswald", sans-serif;
+  font-family: var(--font-heading);
 }
 
 .pdx-hero-title {
@@ -197,13 +195,13 @@
 
 .pdx-hero-main {
   color: #f3f3f3;
-  font-family: "Anton", "Bebas Neue", sans-serif;
+  font-family: var(--font-heading);
   letter-spacing: 0.02em;
 }
 
 .pdx-hero-accent {
   color: var(--pdx-accent);
-  font-family: "Anton", "Bebas Neue", sans-serif;
+  font-family: var(--font-heading);
   letter-spacing: 0.02em;
   text-shadow: 0 0 12px rgba(255, 0, 0, 0.18);
 }
@@ -354,7 +352,7 @@
   font-weight: 400;
   line-height: 0.82;
   position: relative;
-  font-family: "Anton", "Bebas Neue", sans-serif;
+  font-family: var(--font-heading);
   letter-spacing: 0.01em;
 }
 
@@ -380,7 +378,7 @@
   color: var(--pdx-accent);
   font-size: 0.9rem;
   letter-spacing: 0.32em;
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-body);
   font-weight: 500;
 }
 
@@ -393,7 +391,7 @@
 
 .pdx-title-accent {
   color: var(--pdx-accent);
-  font-family: "Bodoni Moda", serif;
+  font-family: var(--font-heading);
   font-style: italic;
   font-weight: 800;
   letter-spacing: 0.005em;
@@ -446,7 +444,7 @@
 .pdx-card-number {
   color: #232323;
   font-size: 2.2rem;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: var(--font-heading);
 }
 
 .pdx-card-title {
@@ -729,7 +727,7 @@
 
 .pdx-impact-card h3 {
   margin: 0;
-  font-family: "Bebas Neue", "Anton", sans-serif;
+  font-family: var(--font-heading);
   color: var(--pdx-accent);
   font-size: clamp(2.2rem, 5vw, 3.1rem);
   line-height: 1;
@@ -787,7 +785,7 @@
   text-transform: uppercase;
   line-height: 0.9;
   letter-spacing: 0.02em;
-  font-family: "Bebas Neue", "Anton", sans-serif;
+  font-family: var(--font-heading);
   font-size: clamp(3.1rem, 8vw, 6rem);
 }
 

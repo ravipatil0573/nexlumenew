@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useMemo } from "react";
 import { ArrowRight, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 import profileImage from "../../../assets/Team/aman.jpg";
 import "./Hero.css";
 
@@ -33,21 +34,6 @@ export default function Hero() {
 
     starsContainer.appendChild(fragment);
   }, [starCount]);
-
-  // Smooth scroll handler for anchor links
-  const handleConnectClick = (e) => {
-    const href = e.currentTarget.getAttribute("href");
-    if (href && href.startsWith("#")) {
-      e.preventDefault();
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }
-    }
-  };
 
   return (
     <section
@@ -122,9 +108,8 @@ export default function Hero() {
             {/* Call to Action */}
             <div className="cta-section d-flex flex-column flex-md-row align-items-center justify-content-center gap-3 gap-md-4">
               {/* Let's Connect Button */}
-              <a
-                href="#contact"
-                onClick={handleConnectClick}
+              <Link
+                to="/contact"
                 className="connect-btn d-inline-flex align-items-center gap-2 px-4 py-3 rounded-pill text-decoration-none"
                 aria-label="Navigate to contact section"
               >
@@ -132,7 +117,7 @@ export default function Hero() {
                 <div className="arrow-circle" aria-hidden="true">
                   <ArrowRight size={18} />
                 </div>
-              </a>
+              </Link>
 
               {/* Email */}
               <a

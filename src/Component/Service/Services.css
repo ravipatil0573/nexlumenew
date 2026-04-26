@@ -128,7 +128,7 @@
   font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: 0.28em;
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-heading);
 }
 
 .services-style-label {
@@ -154,14 +154,14 @@
 
 .services-style-main,
 .services-style-bottom {
-  font-family: "Anton", "Bebas Neue", serif;
+  font-family: var(--font-heading);
   color: hsl(0, 0%, 96%);
   font-weight: 800;
 }
 
 .services-style-accent {
   color: #ff0000;
-  font-family: "Bodoni Moda", serif;
+  font-family: var(--font-heading);
   font-style: italic;
   font-weight: 800;
   text-transform: uppercase;
@@ -2126,7 +2126,7 @@
 /* DISCOVER - Background text, extremely large, light color */
 .hero-layer--bg {
   font-size: clamp(3.2rem, 8vw, 7rem);
-  font-family: "Anton", "Bebas Neue", sans-serif;
+  font-family: var(--font-heading);
   color: rgba(245, 245, 245, 0.12);
   font-weight: 900;
   text-transform: uppercase;
@@ -2143,7 +2143,7 @@
 /* OUR - Bright red focal point, elegant italic serif, overlapping across center */
 .hero-layer--accent {
   font-size: clamp(4rem, 9vw, 8rem);
-  font-family: "Bodoni Moda", "Georgia", serif;
+  font-family: var(--font-heading);
   font-style: italic;
   color: #ff0a0a;
   font-weight: 800;
@@ -2162,7 +2162,7 @@
 /* EXPERTISE - Large bold white text, layered behind/below for depth */
 .hero-layer--fg {
   font-size: clamp(3.4rem, 7.5vw, 6rem);
-  font-family: "Anton", "Bebas Neue", sans-serif;
+  font-family: var(--font-heading);
   color: #ffffff;
   font-weight: 900;
   text-transform: uppercase;

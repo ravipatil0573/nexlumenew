@@ -363,7 +363,7 @@
     line-height: 1.58;
     color: #ff2a2a;
     font-style: italic;
-    font-family: "Bodoni Moda", "Georgia", serif;
+    font-family: var(--font-heading);
   }
 
   .project-mobile-divider {

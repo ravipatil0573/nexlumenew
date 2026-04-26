@@ -32,7 +32,7 @@
   letter-spacing: 0.42em;
   color: #5f5f5f;
   text-transform: uppercase;
-  font-family: "Inter", "Helvetica", serif;
+  font-family: var(--font-heading);
 }
 
 .projects-style-title {
@@ -50,7 +50,7 @@
 }
 
 .projects-style-main {
-  font-family: "Anton", "Bebas Neue", serif;
+  font-family: var(--font-heading);
   font-weight: 700;
   color: #f5f5f5;
   text-transform: uppercase;
@@ -60,7 +60,7 @@
 }
 
 .projects-style-accent {
-  font-family: "Bodoni Moda", "Georgia", serif;
+  font-family: var(--font-heading);
   font-style: italic;
   font-weight: 800;
   color: #ff0a0a;
@@ -86,7 +86,7 @@
    ============================================ */
 
 .project-impact-text {
-  font-family: "Bodoni Moda", "Georgia", serif !important;
+  font-family: var(--font-heading) !important;
   font-style: italic !important;
   font-weight: 600 !important;
   color: #ff0a0a !important;

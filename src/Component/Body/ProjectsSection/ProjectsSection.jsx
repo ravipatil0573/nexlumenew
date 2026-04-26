@@ -189,18 +189,6 @@ const ProjectsSection = () => {
                   {/* Enhanced Gradient overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
 
-                  {/* Play Icon with Better Styling */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-60 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="w-14 h-14 rounded-full border-2 border-white/60 flex items-center justify-center bg-white/5 backdrop-blur">
-                      <svg
-                        className="w-5 h-5 text-white ml-0.5"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </div>
-                  </div>
                 </div>
 
                 {/* Content Below Video with Gradient Background */}
@@ -351,22 +339,6 @@ const ProjectsSection = () => {
                     {/* Gradient Overlays */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-300"></div>
                     <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
-                    {/* Play Icon Indicator */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="relative">
-                        <div className="absolute inset-0 bg-red-600 rounded-full opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300 scale-150"></div>
-                        <div className="relative w-16 h-16 rounded-full border-2 border-white/40 group-hover:border-white/80 flex items-center justify-center transition-all duration-300 group-hover:bg-white/10">
-                          <svg
-                            className="w-6 h-6 text-white/60 group-hover:text-white ml-1 transition-colors duration-300"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path d="M8 5v14l11-7z" />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
 
                     {/* Bottom Info */}
                     <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/90 to-transparent">

@@ -46,6 +46,7 @@ import Ravi from "../../assets/Team/ravi.jpg";
 import Aman from "../../assets/Team/aman.jpg";
 import Prajwal from "../../assets/Team/Pk.jpg";
 import Sanath from "../../assets/Team/anna.jpg";
+import Shraddha from "../../assets/Team/shraddha.jpeg";
 import GroupImage from "../../assets/Team/group-image.jpg";
 import TeamEmailImage from "../../assets/Team/team-email.jpg";
 
@@ -56,10 +57,26 @@ const demo = [
   {
     image: Nikhil,
     title: "Nikhil Messa",
-    role: "Full Stack Architect",
+    role: "Tech Lead",
     handle: "@nikhilmessa",
-    bio: "Building scalable web applications with modern technologies",
+    bio: "Leading technical strategy and scalable system architecture.",
     url: "https://www.linkedin.com/in/nikhil-messa/",
+  },
+  {
+    image: Prajwal,
+    title: "Prajwal Kolure",
+    role: "Creative Director",
+    handle: "@prajwalkolure",
+    bio: "Driving creative vision through impactful design, branding, and visual storytelling.",
+    url: "https://www.linkedin.com/in/prajwal-k-956865328/",
+  },
+  {
+    image: Aman,
+    title: "Aman Mishra",
+    role: "Project Manager",
+    handle: "@amanmishra",
+    bio: "Ensuring smooth execution of projects by managing timelines, teams, and deliverables.",
+    url: "https://www.linkedin.com/in/amanmishra107/",
   },
   {
     image: Sanjit,
@@ -72,34 +89,27 @@ const demo = [
   {
     image: Ravi,
     title: "Ravindra Patil",
-    role: "Infrastructure Expert",
+    role: "Product Engineer",
     handle: "@ravindrapatil",
-    bio: "Engineering reliable systems at scale",
+    bio: "Building end-to-end product features efficiently and scalability.",
     url: "https://www.linkedin.com/in/ravindra-patil-3a2876250/",
-  },
-  {
-    image: Aman,
-    title: "Aman Mishra",
-    role: "Tech Lead",
-    handle: "@amanmishra",
-    bio: "Driving technical excellence and team growth",
-    url: "https://www.linkedin.com/in/amanmishra107/",
-  },
-  {
-    image: Prajwal,
-    title: "Prajwal Kolure",
-    role: "Brand Visionary",
-    handle: "@prajwalkolure",
-    bio: "Crafting compelling visual stories and experiences",
-    url: "https://www.linkedin.com/in/prajwal-k-956865328/",
   },
   {
     image: Sanath,
     title: "Sanath Shetty",
-    role: "Growth Enabler",
+    role: "Full Stack Developer",
     handle: "@sanathshetty",
-    bio: "Connecting technology with business strategy",
+    bio: "Developing end-to-end solutions with a focus on performance and scalability.",
     url: "#",
+  },
+  {
+    image: Shraddha,
+    title: "Sharddha Chauhan",
+    role: "Creative Strategist",
+    handle: "@sharddhachauhan",
+    bio: "Using creative strategies for brand growth, enhancing client engagement and reach.",
+    url: "https://www.linkedin.com/in/shraddha-chauhan017-532044223/",
+    imagePosition: "center 42%",
   },
 ];
 
@@ -107,8 +117,10 @@ const demo = [
 // TEAM CARD COMPONENT
 // =========================
 const TeamCard = ({ items = demo }) => {
+  const hasSevenMembers = items.length === 7;
+
   return (
-    <div className="team-grid">
+    <div className={`team-grid ${hasSevenMembers ? "team-grid--seven" : ""}`}>
       {items.map((member, index) => (
         <div key={index} className="team-card" data-index={index}>
           <div className="team-card-inner">
@@ -118,6 +130,9 @@ const TeamCard = ({ items = demo }) => {
                 alt={member.title}
                 className="team-image"
                 generateSources={false}
+                style={{
+                  "--team-image-position": member.imagePosition || "center 30%",
+                }}
               />
               <div className="team-image-overlay"></div>
             </div>
@@ -283,7 +298,7 @@ const Team = () => {
 
         <div className="team-stats">
           <div className="stat-item">
-            <div className="stat-number">6+</div>
+            <div className="stat-number">7</div>
             <div className="stat-label">Team Members</div>
           </div>
           <div className="stat-item">
@@ -298,7 +313,7 @@ const Team = () => {
 
         <div id="teams" className="team-main-container">
           {isTeamLoading ? (
-            <TeamCardSkeleton count={6} />
+            <TeamCardSkeleton count={7} />
           ) : (
             <TeamCard items={members.length ? members : demo} />
           )}
